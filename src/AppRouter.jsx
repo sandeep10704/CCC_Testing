@@ -39,8 +39,9 @@ const AppRoutes = () => {
             <Route
             path="/Dashboard"
             element={
-             
+                 <PrivateRoute> 
                 <DashboardLayout/>
+                </PrivateRoute>
               
             }/>
             {/* Optionally add a redirect to /home or /login here */}

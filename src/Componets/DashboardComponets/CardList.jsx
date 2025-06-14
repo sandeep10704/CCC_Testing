@@ -19,7 +19,12 @@ function CardList({ cardData }) {
   const displayedCards = showAll ? cardData : cardData.slice(0, 2);
 
   return (
-    <Box width={760}>
+    <Box width={760} sx={{
+      borderRadius: 3,
+      boxShadow: 1,
+      p: 1,
+    }}>
+      <Typography>Cards</Typography>
       {displayedCards.map((card) => {
         const remaining = dayjs().to(dayjs(card.datetime));
         const isSoon = dayjs(card.datetime).diff(dayjs(), "minute") <= 5;
@@ -35,7 +40,6 @@ function CardList({ cardData }) {
               px: 2,
               py: 2,
               mb: 2,
-              maxWidth: 800,
               mx: "auto",
             }}
           >
@@ -44,7 +48,15 @@ function CardList({ cardData }) {
               component="img"
               image={card.image}
               alt={card.title}
-              sx={{ width: 80, height: 80, borderRadius: 2 }}
+              sx={{
+                width: 80,
+                height: 80,
+                borderRadius: 2,
+                transition: 'transform 0.3s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.2)',
+                },
+              }}
             />
 
             {/* Content */}

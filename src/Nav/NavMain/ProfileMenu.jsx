@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Popover, Box, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
-// 🔶 Style variables
+
 const styles = {
   icon: {
     fontSize: 36,
