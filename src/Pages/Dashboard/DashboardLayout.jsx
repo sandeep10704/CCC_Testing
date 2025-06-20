@@ -15,6 +15,7 @@ import Code from '../../Componets/DashboardComponets/Code';
 import InfiniteScrollingCarousel from '../../Componets/DashboardComponets/InfiniteScrollingCarousel';
 import AccordionControlled from '../../Componets/DashboardComponets/AccordionControlled';
 import { Typography } from '@mui/joy';
+import OrganizerParticipantButtons from '../../Componets/DashboardComponets/OrganizerParticipantToggle';
 
 
 function DashboardLayout() {
@@ -145,7 +146,7 @@ function DashboardLayout() {
       <Box sx={{ width: '100%' }}>
         <AccordionControlled />
       </Box>
-
+{/* <OrganizerParticipantButtons/> */}
       <Code />
     </Box>
 

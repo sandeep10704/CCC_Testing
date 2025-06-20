@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import {
-  Button,
-  FormControl,
-  FormGroup,
-  TextField,
-  Typography,
-  InputAdornment,
-  IconButton
-} from '@mui/material';
+import Button from '@mui/material/Button';
+import FormControl from '@mui/material/FormControl';
+import FormGroup from '@mui/material/FormGroup';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -215,6 +213,7 @@ const Login = () => {
           </div>
         </FormGroup>
       </FormControl>
+
     </div>
   );
 };

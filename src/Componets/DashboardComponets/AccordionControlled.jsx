@@ -2,6 +2,8 @@ import { Box, Typography } from '@mui/joy';
 import Paper from '@mui/material/Paper';
 import { useEffect, useState } from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import FaqItem from '../../models/FaqItem';
+
 
 function AccordionControlled() {
   const [faqData, setFaqData] = useState([]);
@@ -9,9 +11,11 @@ function AccordionControlled() {
 
   useEffect(() => {
     fetch('/jsondata/faqData.json')
-
       .then((res) => res.json())
-      .then((data) => setFaqData(data))
+      .then((data) => {
+        const items = FaqItem.fromJsonArray(data);
+        setFaqData(items);
+      })
       .catch((err) => console.error("Failed to fetch FAQ data:", err));
   }, []);
 
@@ -51,7 +55,7 @@ function AccordionControlled() {
           FAQs
         </Typography>
 
-        {faqData.map(({ question, answer }, index) => (
+        {faqData.map((faq, index) => (
           <Paper
             key={index}
             elevation={activeIndex === index ? 4 : 1}
@@ -75,7 +79,7 @@ function AccordionControlled() {
               alignItems: 'center',
             }}
           >
-            <Typography>{question}</Typography>
+            <Typography>{faq.getFormattedQuestion()}</Typography>
             <ArrowForwardIosIcon
               sx={{
                 transform: activeIndex === index ? 'rotate(90deg)' : 'rotate(0deg)',
@@ -101,7 +105,7 @@ function AccordionControlled() {
           }}
         >
           <Typography sx={{ fontSize: '1.1rem' }}>
-            {faqData[activeIndex]?.answer}
+            {faqData[activeIndex]?.getFormattedAnswer()}
           </Typography>
         </Box>
       )}
